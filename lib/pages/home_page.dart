@@ -14,7 +14,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   late List<String> experiences;
-  late String  education;
+  late List<String>  educations;
   late Map<String, dynamic> cvData = {
     'skills': 'Backend Developer, Web Developer, Flutter, Laravel',
     'interests': 'Fullstack Developer, Mobile App Developer',
@@ -32,7 +32,7 @@ class _HomePageState extends State<HomePage> {
       'education': 'Master in Backend Web (2014-2016), Master in Laravel (2016-2018), Bachiller in Sistemas (2019-2020)',
     };
     experiences = cvData['experience'].split(', ');
-    education = cvData['education'];
+    educations = cvData['education'].split(', ');
   }
 
   // Function to update CV data
@@ -40,7 +40,7 @@ class _HomePageState extends State<HomePage> {
     setState(() {
       cvData = editedData;
       experiences = cvData['experience'].split(', ');
-      education = cvData['education'];
+      educations = cvData['education'];
     });
   }
 
@@ -158,14 +158,22 @@ class _HomePageState extends State<HomePage> {
               ),
 
               SizedBox(height: 15.0),
-              // Text(cvData['education'], style: TextStyle(color: Colors.white, fontSize: 18)),
+              Text('education', style: TextStyle(color: Colors.white, fontSize: 18)),
               SizedBox(height: 15.0),
               // CardCustom(text: this.cvData['education'],colorIcon: Color(0xffA36FF6), isEducation: true, education: '2014 - 2016 . University',),
-              CardCustom(text: 'Master in Backend Web',colorIcon: Color(0xffA36FF6), isEducation: true, education: '2014 - 2016 . University',),
-              CardCustom(text: 'Master in Laravel',colorIcon: Color(0xffA36FF6), isEducation: true, education: '2016 - 2018 . University',),
-              CardCustom(text: 'Bachiller in Sistemas',colorIcon: Color(0xffA36FF6), isEducation: true, education: '2019 - 2020 . University',),
-              CardCustom(text: education, colorIcon: Color(0xffA36FF6), isEducation: true, education: '2019 - 2020 . University',),
-
+              // CardCustom(text: 'Master in Backend Web',colorIcon: Color(0xffA36FF6), isEducation: true, education: '2014 - 2016 . University',),
+              // CardCustom(text: 'Master in Laravel',colorIcon: Color(0xffA36FF6), isEducation: true, education: '2016 - 2018 . University',),
+              // CardCustom(text: 'Bachiller in Sistemas',colorIcon: Color(0xffA36FF6), isEducation: true, education: '2019 - 2020 . University',),
+              // CardCustom(text: education, colorIcon: Color(0xffA36FF6), isEducation: true, education: '2019 - 2020 . University',),
+              SingleChildScrollView(
+                child: ListView.builder(
+                  shrinkWrap: true,
+                  itemCount: educations.length,
+                  itemBuilder: (BuildContext context, int index) {
+                    return CardCustom(text: educations[index], colorIcon: Color(0xffA36FF6), isEducation: true);
+                  },
+                ),
+              ),
               SizedBox(height: 15.0),
               Text('Experience', style: TextStyle(color: Colors.white, fontSize: 18)),
               SizedBox(height: 15.0),
