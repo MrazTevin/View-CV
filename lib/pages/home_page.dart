@@ -1,9 +1,50 @@
 import 'package:flutter/material.dart';
 import 'package:resume_app/widgets/card_custom.dart';
-import 'package:resume_app/widgets/card_top.dart';
+import 'package:resume_app/pages/editing_page.dart';
 import 'package:resume_app/widgets/progress_bar.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
+
+
+  @override
+  _HomePageState createState() => _HomePageState();
+}
+
+
+
+class _HomePageState extends State<HomePage> {
+  late List<String> experiences;
+  late String  education;
+  late Map<String, dynamic> cvData = {
+    'skills': 'Backend Developer, Web Developer, Flutter, Laravel',
+    'interests': 'Fullstack Developer, Mobile App Developer',
+    'experience': 'Freelance Web Designer, Senior Web Developer, Semi Senior Web Developer',
+    'education': 'Master in Backend Web (2014-2016), Master in Laravel (2016-2018), Bachiller in Sistemas (2019-2020)',
+  };
+
+   @override
+  void initState() {
+    super.initState();
+    cvData = {
+      'skills': 'Backend Developer, Web Developer, Flutter, Laravel',
+      'interests': 'Fullstack Developer, Mobile App Developer',
+      'experience': 'Freelance Web Designer, Senior Web Developer, Semi Senior Web Developer',
+      'education': 'Master in Backend Web (2014-2016), Master in Laravel (2016-2018), Bachiller in Sistemas (2019-2020)',
+    };
+    experiences = cvData['experience'].split(', ');
+    education = cvData['education'];
+  }
+
+  // Function to update CV data
+  void _updateCVData(Map<String, dynamic> editedData) {
+    setState(() {
+      cvData = editedData;
+      experiences = cvData['experience'].split(', ');
+      education = cvData['education'];
+    });
+  }
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -65,6 +106,7 @@ class HomePage extends StatelessWidget {
                       ),
                     ),
                   ),
+                  SizedBox(height: 10.0), // Add some spacing
                 ],
 
               ),
@@ -79,7 +121,7 @@ class HomePage extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text('Skills', style: TextStyle(color: Colors.white, fontSize: 18)),
+                    Text(cvData['skills'], style: TextStyle(color: Colors.white, fontSize: 18)),
                     SizedBox(height: 30.0),
                     ProgressBarCustom(skill: 'Backend Developer', porcentaje: '95',color: Color(0xffA36FF6)),
                     ProgressBarCustom(skill: 'Web Developer', porcentaje: '80',color: Color(0xff83DBC5), barra: 250),
@@ -90,7 +132,7 @@ class HomePage extends StatelessWidget {
               ),
 
               SizedBox(height: 15.0),
-              Text('Interests', style: TextStyle(color: Colors.white, fontSize: 18)),
+              Text(cvData['interests'], style: TextStyle(color: Colors.white, fontSize: 18)),
               SizedBox(height: 15.0),
 
               Column(
@@ -116,22 +158,43 @@ class HomePage extends StatelessWidget {
               ),
 
               SizedBox(height: 15.0),
-              Text('Education', style: TextStyle(color: Colors.white, fontSize: 18)),
+              // Text(cvData['education'], style: TextStyle(color: Colors.white, fontSize: 18)),
               SizedBox(height: 15.0),
-
+              // CardCustom(text: this.cvData['education'],colorIcon: Color(0xffA36FF6), isEducation: true, education: '2014 - 2016 . University',),
               CardCustom(text: 'Master in Backend Web',colorIcon: Color(0xffA36FF6), isEducation: true, education: '2014 - 2016 . University',),
               CardCustom(text: 'Master in Laravel',colorIcon: Color(0xffA36FF6), isEducation: true, education: '2016 - 2018 . University',),
               CardCustom(text: 'Bachiller in Sistemas',colorIcon: Color(0xffA36FF6), isEducation: true, education: '2019 - 2020 . University',),
+              CardCustom(text: education, colorIcon: Color(0xffA36FF6), isEducation: true, education: '2019 - 2020 . University',),
 
               SizedBox(height: 15.0),
               Text('Experience', style: TextStyle(color: Colors.white, fontSize: 18)),
               SizedBox(height: 15.0),
+              // CardCustom(text: cvData['experience'], colorIcon: Color(0xffA36FF6), isEducation: false),
+              SingleChildScrollView(
+                child: ListView.builder(
+                  shrinkWrap: true,
+                  itemCount: experiences.length,
+                  itemBuilder: (BuildContext context, int index) {
+                    return CardCustom(text: experiences[index], colorIcon: Color(0xffA36FF6), isEducation: false);
+                  },
+                ),
+              ),
 
-              CardCustom(text: 'Freelance Web Designer',colorIcon: Color(0xffA36FF6), isEducation: false),
-              CardCustom(text: 'Senior Web Developer',colorIcon: Color(0xff83DBC5), isEducation: false),
-              CardCustom(text: 'Semi Senior Web Developer',colorIcon: Color(0xff0385DC), isEducation: false),
-              CardCustom(text: 'Junior Web Developer',colorIcon: Color(0xffE62755), isEducation: false),
-              CardCustom(text: 'Freelance App Flutter',colorIcon: Color(0xffF7605D), isEducation: false),
+              // CardCustom(text: 'Freelance Web Designer',colorIcon: Color(0xffA36FF6), isEducation: false),
+              // CardCustom(text: 'Senior Web Developer',colorIcon: Color(0xff83DBC5), isEducation: false),
+              // CardCustom(text: 'Semi Senior Web Developer',colorIcon: Color(0xff0385DC), isEducation: false),
+              // CardCustom(text: 'Junior Web Developer',colorIcon: Color(0xffE62755), isEducation: false),
+              // CardCustom(text: 'Freelance App Flutter',colorIcon: Color(0xffF7605D), isEducation: false),
+              SizedBox(height: 15.0,),
+               ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => EditPage(cvData: cvData, onUpdateCVData: _updateCVData)),
+                  );
+                },
+                child: Text('Edit'),
+              ),
             ],
           ),
         ),
