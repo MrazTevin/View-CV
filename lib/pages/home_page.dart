@@ -208,15 +208,27 @@ class _HomePageState extends State<HomePage> {
               // CardCustom(text: 'Junior Web Developer',colorIcon: Color(0xffE62755), isEducation: false),
               // CardCustom(text: 'Freelance App Flutter',colorIcon: Color(0xffF7605D), isEducation: false),
               SizedBox(height: 15.0,),
-               ElevatedButton(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => EditPage(cvData: cvData, onUpdateCVData: _updateCVData)),
-                  );
-                },
-                child: Text('Edit'),
-              ),
+               SizedBox(
+                width: double.infinity,
+                 child: ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Color(0xffEBE9E2),
+                    foregroundColor: Colors.black,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(20.0),
+                    ),
+                    padding: const EdgeInsets.symmetric(vertical: 16.0),
+                  ),
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => EditPage(cvData: cvData, onUpdateCVData: _updateCVData)),
+                    );
+                  },
+                  child: Text('Edit'),
+                             ),
+               ),
+               SizedBox(height: 25.0,),
             ],
           ),
         ),

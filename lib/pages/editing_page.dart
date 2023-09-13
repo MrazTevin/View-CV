@@ -72,9 +72,21 @@ void _saveCVData() {
                 labelText: 'Education',
               ),
             ),
-            ElevatedButton(
-              onPressed: _saveCVData,
-              child: Text('Save'),
+            SizedBox(height: 16.0,),
+            SizedBox(
+              width: double.infinity,
+              child: ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Color(0xffEBE9E2),
+                  foregroundColor: Colors.black,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20.0),
+                  ),
+                  padding: const EdgeInsets.symmetric(vertical: 16.0)
+                ),
+                onPressed: _saveCVData,
+                child: Text('Save'),
+              ),
             ),
           ],
         ),
