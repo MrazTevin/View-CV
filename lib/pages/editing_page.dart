@@ -41,7 +41,12 @@ void _saveCVData() {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Edit CV Data'),
+        title: Text('Edit CV Data',
+        style: TextStyle(
+          color: Colors.black,
+        ),
+        ),
+        backgroundColor: Color(0xffEBE9E2),
       ),
       body: Padding(
         padding: EdgeInsets.all(16.0),
