@@ -25,8 +25,8 @@ class ProgressBarCustom extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text(skill ?? "", style: TextStyle(color: Colors.white, fontSize: 16)),
-              Text('$porcentaje%', style: TextStyle(color: Colors.white, fontSize: 16)),
+              Text(skill ?? "", style: TextStyle(color: Colors.black, fontSize: 16)),
+              Text('$porcentaje%', style: TextStyle(color: Colors.black, fontSize: 16)),
             ],
           ),
           SizedBox(height: 10.0),
