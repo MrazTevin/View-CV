@@ -172,9 +172,9 @@ class _HomePageState extends State<HomePage> {
               SizedBox(height: 15.0),
               Text('Experience', style: TextStyle(color: Colors.black, fontSize: 18)),
               SizedBox(height: 15.0),
-              CardCustom(text: experiences[0],colorIcon: Color(0xffA36FF6), isEducation: false),
-              CardCustom(text: experiences[1],colorIcon: Color(0xff83DBC5), isEducation: false),
-              CardCustom(text: experiences[2],colorIcon: Color(0xff0385DC), isEducation: false),
+              CardCustom(text: experiences[0],colorIcon: Color(0xffA36FF6), isEducation: true, education: '2022 - 2023 . Meliora Technologies',),
+              CardCustom(text: experiences[1],colorIcon: Color(0xff83DBC5), isEducation: true, education: '2019 - 2023 . Code Pamoja',),
+              CardCustom(text: experiences[2],colorIcon: Color(0xff0385DC), isEducation: true, education: '2017 - 2018 . Technosol Africa',),
               // SingleChildScrollView(
               //   child: ListView.builder(
               //     shrinkWrap: true,
