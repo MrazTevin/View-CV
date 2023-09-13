@@ -189,24 +189,10 @@ class _HomePageState extends State<HomePage> {
               SizedBox(height: 15.0),
               Text('Experience', style: TextStyle(color: Colors.black, fontSize: 18)),
               SizedBox(height: 15.0),
-              // CardCustom(text: cvData['experience'], colorIcon: Color(0xffA36FF6), isEducation: false),
-              // Flexible(
-              //   // height: 100.0,
-              //   child: ListView.builder(
-              //     shrinkWrap: true,
-              //     itemCount: experiences.length,
-              //     itemBuilder: (BuildContext context, int index) {
-              //       return CardCustom(text: experiences[index], colorIcon: Color(0xffA36FF6), isEducation: false);
-              //     },
-              //   ),
-              // ),
-
               CardCustom(text: experiences[0],colorIcon: Color(0xffA36FF6), isEducation: false),
               CardCustom(text: experiences[1],colorIcon: Color(0xff83DBC5), isEducation: false),
               CardCustom(text: experiences[2],colorIcon: Color(0xff0385DC), isEducation: false),
               // CardCustom(text: 'Semi Senior Web Developer',colorIcon: Color(0xff0385DC), isEducation: false),
-              // CardCustom(text: 'Junior Web Developer',colorIcon: Color(0xffE62755), isEducation: false),
-              // CardCustom(text: 'Freelance App Flutter',colorIcon: Color(0xffF7605D), isEducation: false),
               SizedBox(height: 15.0,),
                SizedBox(
                 width: double.infinity,
