@@ -71,11 +71,15 @@ class _HomePageState extends State<HomePage> {
                 children: [
                   // Your full name in a circular frame with rounded black border
                   CircleAvatar(
-                    radius: 50.0, // Adjust the size as needed
+                    radius: 100.0, // Adjust the size as needed
                     backgroundColor: Colors.black, // Change as needed
-                    child: CircleAvatar(
-                      radius: 48.0, // Adjust the size as needed
-                      backgroundImage: AssetImage('your_profile_image.png'), // Replace with your image asset
+                    child: ClipOval(
+                      child: Image.asset(
+                        'assets/images/milla.png',
+                        fit:  BoxFit.cover,
+                        width: 200.0,
+                        height: 200.0,
+                      ),
                     ),
                   ),
                   SizedBox(height: 10.0), // Add some spacing
