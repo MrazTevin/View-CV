@@ -21,7 +21,7 @@ class CardCustom extends StatelessWidget {
       child: Container(
         padding: EdgeInsets.all(20.0),
         decoration: BoxDecoration(
-          color: Color(0xff1F1E25),
+          color: Color(0xffEBE9E2),
           borderRadius: BorderRadius.circular(20.0),
         ),
         child: Row(
@@ -39,13 +39,12 @@ class CardCustom extends StatelessWidget {
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(text, style: TextStyle(color: Colors.white, fontSize: 16)),
+                Text(text, style: TextStyle(color: Colors.black, fontSize: 16)),
                 SizedBox(height: 7.0),
                 if (education != null)
-                  Text(education!, style: TextStyle(color: Colors.grey, fontSize: 15))
+                  Text(education!, style: TextStyle(color: Colors.black, fontSize: 15))
                 else
-                  Text('No education specified', style: TextStyle(color: Colors.grey, fontSize: 15)),
-                Text('2020 - New . Lima - PE', style: TextStyle(color: Colors.grey, fontSize: 15)),
+                  Text('No education specified', style: TextStyle(color: Colors.black, fontSize: 15)),
               ],
             ),
           ],
