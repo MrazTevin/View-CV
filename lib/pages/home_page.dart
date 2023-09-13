@@ -15,6 +15,8 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   late List<String> experiences;
   late List<String>  educations;
+  late List<String>  skillss;
+  late List<String> intrestss;
   late Map<String, dynamic> cvData = {
     'skills': 'Backend Developer, Web Developer, Flutter, Laravel',
     'interests': 'Fullstack Developer, Mobile App Developer',
@@ -33,6 +35,8 @@ class _HomePageState extends State<HomePage> {
     };
     experiences = cvData['experience'].split(', ');
     educations = cvData['education'].split(', ');
+    skillss = cvData['skills'].split(', ');
+    intrestss  = cvData['interests'].split(', ');
   }
 
   // Function to update CV data
@@ -40,7 +44,9 @@ class _HomePageState extends State<HomePage> {
     setState(() {
       cvData = editedData;
       experiences = cvData['experience'].split(', ');
-      educations = cvData['education'];
+      educations = cvData['education'].split(', ');
+      skillss = cvData['skills'].split(', ');
+      intrestss  = cvData['interests'].split(', ');
     });
   }
 
@@ -99,7 +105,7 @@ class _HomePageState extends State<HomePage> {
                   SizedBox(height: 10.0), // Add some spacing
                   Center(
                     child: Text(
-                      'I am interested in Mobile Development more than Web Development. I joined HNG to become a better developer.',
+                      'I am interested in Mobile Development more than Web Development. I create visually aesthetic designs no matter what.',
                       style: TextStyle(
                         color: Colors.white,
                         fontSize: 16.0,
@@ -121,20 +127,20 @@ class _HomePageState extends State<HomePage> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(cvData['skills'], style: TextStyle(color: Colors.white, fontSize: 18)),
+                    // Text(cvData['skills'], style: TextStyle(color: Colors.white, fontSize: 18)),
                     SizedBox(height: 30.0),
-                    ProgressBarCustom(skill: 'Backend Developer', porcentaje: '95',color: Color(0xffA36FF6)),
-                    ProgressBarCustom(skill: 'Web Developer', porcentaje: '80',color: Color(0xff83DBC5), barra: 250),
-                    ProgressBarCustom(skill: 'Flutter', porcentaje: '75',color: Color(0xff0385DC), barra: 210),
-                    ProgressBarCustom(skill: 'Laravel', porcentaje: '80',color: Color(0xffF7605D), barra: 250),
+                    // ProgressBarCustom(skill: 'Backend Developer', porcentaje: '95',color: Color(0xffA36FF6)),
+                    ProgressBarCustom(skill: skillss[0], porcentaje: '95',color: Color(0xffA36FF6), barra: 285),
+                    ProgressBarCustom(skill: skillss[1], porcentaje: '80',color: Color(0xff83DBC5), barra: 250),
+                    ProgressBarCustom(skill: skillss[2], porcentaje: '75',color: Color(0xff0385DC), barra: 210),
+                    ProgressBarCustom(skill: skillss[3], porcentaje: '80',color: Color(0xffF7605D), barra: 250),
                   ],
                 ),
               ),
 
               SizedBox(height: 15.0),
-              Text(cvData['interests'], style: TextStyle(color: Colors.white, fontSize: 18)),
-              SizedBox(height: 15.0),
-
+              // Text(cvData['interests'], style: TextStyle(color: Colors.white, fontSize: 18)),
+              // SizedBox(height: 15.0),
               Column(
                 children: [
                   Row(children: [
@@ -143,7 +149,8 @@ class _HomePageState extends State<HomePage> {
                       decoration: BoxDecoration(
                           color: Color(0xff1F1E25),
                           borderRadius: BorderRadius.circular(20.0)),
-                      child: Text('Fullstack Developer', style: TextStyle(color: Colors.white, fontSize: 15)),
+                      // child: Text('Fullstack Developer', style: TextStyle(color: Colors.white, fontSize: 15)),
+                      child: Text(intrestss[0], style: TextStyle(color: Colors.white, fontSize: 15)),
                     ),
                     SizedBox(width: 10.0),
                     Container(
@@ -151,14 +158,15 @@ class _HomePageState extends State<HomePage> {
                       decoration: BoxDecoration(
                           color: Color(0xff1F1E25),
                           borderRadius: BorderRadius.circular(20.0)),
-                      child: Text('Fullstack Developer', style: TextStyle(color: Colors.white, fontSize: 15)),
+                      // child: Text('Fullstack Developer', style: TextStyle(color: Colors.white, fontSize: 15)),
+                      child: Text(intrestss[1], style: TextStyle(color: Colors.white, fontSize: 15)),
                     )
                   ])
                 ],
               ),
 
               SizedBox(height: 15.0),
-              Text('education', style: TextStyle(color: Colors.white, fontSize: 18)),
+              Text('Education', style: TextStyle(color: Colors.white, fontSize: 18)),
               SizedBox(height: 15.0),
               // CardCustom(text: this.cvData['education'],colorIcon: Color(0xffA36FF6), isEducation: true, education: '2014 - 2016 . University',),
               // CardCustom(text: 'Master in Backend Web',colorIcon: Color(0xffA36FF6), isEducation: true, education: '2014 - 2016 . University',),
