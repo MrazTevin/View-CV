@@ -55,12 +55,11 @@ A simple CV app that showcases personal and professional details.
 > $ Use '''flutter run''' to run the app
 ```
 
+## The best part is checking the app in action
 
-A few resources to get you started if this is your first Flutter project:
+* [Appetizer](https://appetize.io/app/3c37bonwxkoatjkx3v5yikbvby?device=pixel6&osVersion=12.0&scale=75) - Preview the App
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Written By:
+
+- [Tevin Milla](https://github.com/MrazTevin)
