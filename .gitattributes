@@ -1,0 +1,25 @@
+# Dart for main app code
+lib/** linguist-language=Dart
+
+# Ignore build artifacts
+build/** linguist-vendored
+
+# Ignore platform-specific native code
+android/** linguist-vendored
+ios/** linguist-vendored
+macos/** linguist-vendored
+windows/** linguist-vendored
+linux/** linguist-vendored
+web/** linguist-vendored
+
+# Ignore generated Dart files
+*.g.dart linguist-generated=true
+*.freezed.dart linguist-generated=true
+*.pb.dart linguist-generated=true
+
+# Ignore any C/C++ or CMake build configs
+*.cpp linguist-vendored
+*.h linguist-vendored
+*.hpp linguist-vendored
+CMakeLists.txt linguist-vendored
+*.cmake linguist-vendored
